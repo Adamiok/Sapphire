@@ -6,12 +6,12 @@ license='''
 CC BY-NC-SA 4.0,
 More info: https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" 
 '''#mandatory https://choosealicense.com/
-issueTrackerURL="http://my.issue.tracker/" #optional
+issueTrackerURL="https://github.com/Adamiok/Sapphire/tree/main" #optional
  
 [[mods]] #mandatory
 modId="adamioks_sapphire" #mandatory
 version="1.0" #mandatory
-displayName="Sapphire | End Ore" #mandatory
+displayName="Sapphire-End Ore" #mandatory
 credits="Created by: Adamiok." #optional
 authors="Adamiok" #optional
 description='''
