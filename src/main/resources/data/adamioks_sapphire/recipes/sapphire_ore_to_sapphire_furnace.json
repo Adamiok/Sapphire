@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+        "item": "adamioks_sapphire:sapphire_ore"
+    },
+    "result": "adamioks_sapphire:sapphire",
+    "experience": 1,
+    "cookingtime": 400
+}

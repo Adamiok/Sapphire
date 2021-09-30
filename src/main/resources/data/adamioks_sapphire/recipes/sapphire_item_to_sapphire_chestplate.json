@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "# #",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "adamioks_sapphire:sapphire"
+        }
+    },
+    "result": {
+        "item": "adamioks_sapphire:sapphire_chestplate",
+        "count": 1
+    }
+}

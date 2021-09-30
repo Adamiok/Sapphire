@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:blasting",
+    "ingredient": {
+        "item": "adamioks_sapphire:sapphire_ore"
+    },
+    "result": "adamioks_sapphire:sapphire",
+    "experience": 2,
+    "cookingtime": 200
+}

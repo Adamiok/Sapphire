@@ -1,0 +1,19 @@
+#Anything that is optional which you are not using, just delete that line. You can also delete any of the '#comments'
+ 
+modLoader="javafml" #mandatory
+loaderVersion="[35,)" #mandatory
+license='''
+CC BY-NC-SA 4.0,
+More info: https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" 
+'''#mandatory https://choosealicense.com/
+issueTrackerURL="http://my.issue.tracker/" #optional
+ 
+[[mods]] #mandatory
+modId="adamioks_sapphire" #mandatory
+version="1.0" #mandatory
+displayName="Sapphire | End Ore" #mandatory
+credits="Created by: Adamiok." #optional
+authors="Adamiok" #optional
+description='''
+This mod adds a sapphire ore to the game. It can be only found in the End. Use it to create tools and armor, which is special.
+''' #mandatory

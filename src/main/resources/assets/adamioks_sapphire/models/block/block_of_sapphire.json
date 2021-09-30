@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "adamioks_sapphire:blocks/block_of_sapphire"
+    }
+}

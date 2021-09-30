@@ -1,0 +1,14 @@
+{
+   "item.adamioks_sapphire.sapphire": "Sapphire",
+   "block.adamioks_sapphire.sapphire_ore": "Sapphire Ore",
+   "item.adamioks_sapphire.sapphire_sword": "Sapphire Sword",
+   "item.adamioks_sapphire.sapphire_axe": "Sapphire Axe",
+   "item.adamioks_sapphire.sapphire_shovel": "Sapphire Shovel",
+   "item.adamioks_sapphire.sapphire_pickaxe": "Sapphire Pickaxe",
+   "item.adamioks_sapphire.sapphire_hoe": "Sapphire Hoe",
+   "item.adamioks_sapphire.sapphire_helmet": "Sapphire Helmet",
+   "item.adamioks_sapphire.sapphire_chestplate": "Sapphire Chestplate",
+   "item.adamioks_sapphire.sapphire_leggings": "Sapphire Leggings",
+   "item.adamioks_sapphire.sapphire_boots": "Sapphire Boots",
+   "block.adamioks_sapphire.block_of_sapphire" : "Block of Sapphire"
+}
