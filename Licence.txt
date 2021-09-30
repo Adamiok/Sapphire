@@ -3,4 +3,4 @@ More information here:
 https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1
 
 An exception stands for video context, videos makers need to provide this in the description of each video, where the mod is used:
-Sapphire mod by Adamiok_Game: "add curseforge link here"
+Sapphire mod by Adamiok_Game: "https://www.curseforge.com/minecraft/mc-mods/sapphire-end-ore/settings/license"
