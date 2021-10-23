@@ -9,14 +9,18 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.minecraftforge.common.Tags.Blocks;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 public class OreGeneration {
+	
+	//Preparation
+	public static final RuleTest END_ORE_REPLACEABLES = new TagMatchTest(Blocks.END_STONES);
 
     public static void addOres(final BiomeLoadingEvent event) {
 
-        addOre(event, EndOreGenerationFunction.END_ORE_REPLACEABLES,
-                BlockInit.SAPPHIRE_ORE.get().defaultBlockState(), 6, 0, 45, 7);
+        addOre(event, END_ORE_REPLACEABLES,BlockInit.SAPPHIRE_ORE.get().defaultBlockState(), 6, 0, 45, 7);
     }
 
 

@@ -15,6 +15,8 @@ import com.Adamiok.sapphire.world.OreGeneration;
 
 @Mod("adamioks_sapphire")
 public class Sapphire {
+	
+	//Logger and ModId
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID ="adamioks_sapphire";
     
@@ -22,9 +24,11 @@ public class Sapphire {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
     	bus.addListener(this::setup);
     	
+    	//Register blocks and items
     	ItemInit.ITEMS.register(bus);
     	BlockInit.BLOCKS.register(bus);
     	
+    	//Register ore generation
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGeneration::addOres);
         MinecraftForge.EVENT_BUS.register(this);
         
