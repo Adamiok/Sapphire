@@ -59,7 +59,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
 		   }
 
 		   public String getName() {
-		      return Sapphire.MOD_ID + ":" + this.name;
+		      return Sapphire.MODID + ":" + this.name;
 		   }
 
 		   public float getToughness() {

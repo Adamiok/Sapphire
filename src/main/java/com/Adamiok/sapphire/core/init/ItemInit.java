@@ -1,6 +1,6 @@
 package com.Adamiok.sapphire.core.init;
 
-import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -25,7 +25,7 @@ import net.minecraft.world.item.SwordItem;
 public class ItemInit {
 	
 	//Preparation
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Sapphire.MOD_ID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Sapphire.MODID);
 	
 	  //Items
 	  public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire", () -> 

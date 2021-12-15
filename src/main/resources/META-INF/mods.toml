@@ -1,7 +1,7 @@
 #Anything that is optional which you are not using, just delete that line. You can also delete any of the '#comments'
  
 modLoader="javafml" #mandatory
-loaderVersion="[35,)" #mandatory
+loaderVersion="[38,)" #mandatory
 license='''
 CC BY-NC-SA 4.0,
 More info: https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" 
