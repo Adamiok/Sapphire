@@ -9,6 +9,7 @@ import com.Adamiok.sapphire.core.config.OreGenConfig;
 import com.Adamiok.sapphire.core.init.BlockInit;
 
 import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.block.Blocks;
@@ -17,9 +18,7 @@ import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
@@ -37,21 +36,36 @@ public class OreGeneration {
     public static final RuleTest END_TEST = new BlockMatchTest(Blocks.END_STONE);
 
     public static void registerOres() {
-
-        final ConfiguredFeature<?, ?> sapphireOre = FeatureUtils.register("sapphire_ore",
+    	
+    	//Small sapphire
+        final ConfiguredFeature<?, ?> smallSapphireOre = FeatureUtils.register("small_sapphire_ore",
                 Feature.ORE.configured(new OreConfiguration(
                         List.of(OreConfiguration.target(END_TEST, BlockInit.SAPPHIRE_ORE.get().defaultBlockState())),
-                        OreGenConfig.sapphireVeinSize.get())));
+                        OreGenConfig.sapphireSmallVeinSize.get())));
 
-        final PlacedFeature placedSapphireOre = PlacementUtils.register("sapphire_ore",
-                sapphireOre.placed(
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(OreGenConfig.sapphireMinHeight.get()),
-                                VerticalAnchor.aboveBottom(OreGenConfig.sapphireMaxHeight.get())),
-                        InSquarePlacement.spread(), CountPlacement.of(OreGenConfig.sapphirePerChunk.get())));
+        final PlacedFeature placedSmallSapphireOre = PlacementUtils.register("small_sapphire_ore",
+                smallSapphireOre.placed(OrePlacements.commonOrePlacement(OreGenConfig.sapphireSmallPerChunk.get(), 
+                		HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(OreGenConfig.sapphireMinHeight.get()),
+                				VerticalAnchor.aboveBottom(OreGenConfig.sapphireMaxHeight.get())))));
         
         if (OreGenConfig.generateSapphire.get()) {
-            END_ORES.add(placedSapphireOre);
+            END_ORES.add(placedSmallSapphireOre);
         } 
+        
+        //Large sapphire
+        final ConfiguredFeature<?, ?> largeSapphireOre = FeatureUtils.register("large_sapphire_ore", 
+        		Feature.ORE.configured(new OreConfiguration(
+        				List.of(OreConfiguration.target(END_TEST, BlockInit.SAPPHIRE_ORE.get().defaultBlockState())),
+        				OreGenConfig.sapphireLargeVeinSize.get())));
+        
+        final PlacedFeature placedLargeSapphireOre = PlacementUtils.register("large_sapphire_ore", 
+        		largeSapphireOre.placed(OrePlacements.commonOrePlacement(OreGenConfig.sapphireLargePerChunk.get(), 
+        				HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(OreGenConfig.sapphireMinHeight.get()), 
+        						VerticalAnchor.aboveBottom(OreGenConfig.sapphireMaxHeight.get())))));
+        
+        if (OreGenConfig.generateSapphire.get()) {
+        	END_ORES.add(placedLargeSapphireOre);
+        }
     }
 
     @Mod.EventBusSubscriber(modid = Sapphire.MODID, bus = Bus.FORGE)
@@ -68,7 +82,7 @@ public class OreGeneration {
             	}
             }
             else {
-            	//Ores in every biome which had the THEEND category.
+            	//Ores in every biome which has the THEEND category.
             	switch (event.getCategory()) {
                 case NETHER -> OreGeneration.NETHER_ORES.forEach(ore -> features.add(() -> ore));
                 case THEEND -> OreGeneration.END_ORES.forEach(ore -> features.add(() -> ore));
