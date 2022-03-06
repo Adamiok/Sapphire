@@ -1,11 +1,11 @@
-package com.adamiok.sapphire;
+package com.Adamiok.sapphire;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.adamiok.sapphire.util.ConfigHandler;
-import com.adamiok.sapphire.core.init.BlockInit;
-import com.adamiok.sapphire.core.init.ItemInit;
+import com.Adamiok.sapphire.core.init.BlockInit;
+import com.Adamiok.sapphire.core.init.ItemInit;
+import com.Adamiok.sapphire.util.ConfigHandler;
 
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;

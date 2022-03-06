@@ -1,4 +1,4 @@
-package com.adamiok.sapphire.core.config;
+package com.Adamiok.sapphire.core.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 

@@ -1,8 +1,8 @@
-package com.adamiok.sapphire.util;
+package com.Adamiok.sapphire.util;
 
 import java.nio.file.Path;
 
-import com.adamiok.sapphire.core.config.OreGenConfig;
+import com.Adamiok.sapphire.core.config.OreGenConfig;
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 
