@@ -1,13 +1,11 @@
 package com.adamiok.sapphire.world;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
-
 import com.adamiok.sapphire.Sapphire;
 import com.adamiok.sapphire.core.config.OreGenConfig;
 import com.adamiok.sapphire.core.init.BlockInit;
 
+import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
@@ -28,67 +26,49 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 public class OreGeneration {
-	
-	public static final List<PlacedFeature> OVERWORLD_ORES = new ArrayList<>();
-	public static final List<PlacedFeature> NETHER_ORES = new ArrayList<>();
-    public static final List<PlacedFeature> END_ORES = new ArrayList<>();
 
     public static final RuleTest END_TEST = new BlockMatchTest(Blocks.END_STONE);
-
+    
+    private static Holder<PlacedFeature> placedSmallSapphireOre;
+    private static Holder<PlacedFeature> placedLargeSapphireOre;
+    
     public static void registerOres() {
     	
     	//Small sapphire
-        final ConfiguredFeature<?, ?> smallSapphireOre = FeatureUtils.register("small_sapphire_ore",
-                Feature.ORE.configured(new OreConfiguration(
-                        List.of(OreConfiguration.target(END_TEST, BlockInit.SAPPHIRE_ORE.get().defaultBlockState())),
-                        OreGenConfig.sapphireSmallVeinSize.get())));
-
-        final PlacedFeature placedSmallSapphireOre = PlacementUtils.register("small_sapphire_ore",
-                smallSapphireOre.placed(OrePlacements.commonOrePlacement(OreGenConfig.sapphireSmallPerChunk.get(), 
-                		HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(OreGenConfig.sapphireMinHeight.get()),
-                				VerticalAnchor.aboveBottom(OreGenConfig.sapphireMaxHeight.get())))));
-        
-        if (OreGenConfig.generateSapphire.get()) {
-            END_ORES.add(placedSmallSapphireOre);
-        } 
+    	final Holder<ConfiguredFeature<OreConfiguration, ?>> smallSapphireOre = FeatureUtils.register("small_sapphire_ore",
+    			Feature.SCATTERED_ORE, new OreConfiguration(
+    					END_TEST, BlockInit.SAPPHIRE_ORE.get().defaultBlockState(), OreGenConfig.sapphireSmallVeinSize.get(), 1.0F));
+    	
+        placedSmallSapphireOre = PlacementUtils.register("small_sapphire_ore", 
+        		smallSapphireOre, OrePlacements.commonOrePlacement(OreGenConfig.sapphireSmallPerChunk.get(),
+        				HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(OreGenConfig.sapphireMinHeight.get()), VerticalAnchor.aboveBottom(OreGenConfig.sapphireMaxHeight.get()))));
         
         //Large sapphire
-        final ConfiguredFeature<?, ?> largeSapphireOre = FeatureUtils.register("large_sapphire_ore", 
-        		Feature.ORE.configured(new OreConfiguration(
-        				List.of(OreConfiguration.target(END_TEST, BlockInit.SAPPHIRE_ORE.get().defaultBlockState())),
-        				OreGenConfig.sapphireLargeVeinSize.get())));
+        final Holder<ConfiguredFeature<OreConfiguration, ?>> largeSapphireOre = FeatureUtils.register("large_sapphire_ore", 
+        		Feature.SCATTERED_ORE, new OreConfiguration(
+        				END_TEST, BlockInit.SAPPHIRE_ORE.get().defaultBlockState(), OreGenConfig.sapphireLargeVeinSize.get(), 1.0F));
         
-        final PlacedFeature placedLargeSapphireOre = PlacementUtils.register("large_sapphire_ore", 
-        		largeSapphireOre.placed(OrePlacements.commonOrePlacement(OreGenConfig.sapphireLargePerChunk.get(), 
-        				HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(OreGenConfig.sapphireMinHeight.get()), 
-        						VerticalAnchor.aboveBottom(OreGenConfig.sapphireMaxHeight.get())))));
-        
-        if (OreGenConfig.generateSapphire.get()) {
-        	END_ORES.add(placedLargeSapphireOre);
-        }
+        placedLargeSapphireOre = PlacementUtils.register("large_sapphire_ore", 
+        		largeSapphireOre, OrePlacements.commonOrePlacement(OreGenConfig.sapphireLargePerChunk.get(),
+        				HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(OreGenConfig.sapphireMinHeight.get()), VerticalAnchor.aboveBottom(OreGenConfig.sapphireMaxHeight.get()))));
     }
 
     @Mod.EventBusSubscriber(modid = Sapphire.MODID, bus = Bus.FORGE)
     public static class ForgeBusSubscriber {
         @SubscribeEvent
         public static void biomeLoading(BiomeLoadingEvent event) {
-            final List<Supplier<PlacedFeature>> features = event.getGeneration()
+            final List<Holder<PlacedFeature>> features = event.getGeneration()
                     .getFeatures(Decoration.UNDERGROUND_ORES);
             
-            if (OreGenConfig.generateOresOnlyInVanillaEnd.get()) {
-            	//Ore only in vannila end
+            if (OreGenConfig.generateSapphire.get() && OreGenConfig.generateOresOnlyInVanillaEnd.get()) {
             	if("minecraft".equals(event.getName().getNamespace()) && event.getCategory() == BiomeCategory.THEEND) {
-            		OreGeneration.END_ORES.forEach(ore -> features.add(() -> ore));
+            		features.add(placedLargeSapphireOre);
+            		features.add(placedSmallSapphireOre);
             	}
+            } else if (OreGenConfig.generateSapphire.get()) {
+            	features.add(placedLargeSapphireOre);
+            	features.add(placedSmallSapphireOre);
             }
-            else {
-            	//Ores in every biome which has the THEEND category.
-            	switch (event.getCategory()) {
-                case NETHER -> OreGeneration.NETHER_ORES.forEach(ore -> features.add(() -> ore));
-                case THEEND -> OreGeneration.END_ORES.forEach(ore -> features.add(() -> ore));
-                default -> OreGeneration.OVERWORLD_ORES.forEach(ore -> features.add(() -> ore));
-            	}
-			}
         }
     }
 }

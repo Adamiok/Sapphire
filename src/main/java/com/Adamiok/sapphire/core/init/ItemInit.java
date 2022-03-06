@@ -8,7 +8,7 @@ import com.adamiok.sapphire.Sapphire;
 import com.adamiok.sapphire.common.items.SapphireChestplate;
 import com.adamiok.sapphire.common.items.SapphireHelmet;
 import com.adamiok.sapphire.core.tiers.ModArmorMaterial;
-import com.adamiok.sapphire.core.tiers.ModItemTier;
+import com.adamiok.sapphire.core.tiers.ModTiers;
 
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
@@ -42,23 +42,23 @@ public class ItemInit {
 	  //Swords
 	          // Damage: 1 + baseDamage (0) + addedDamage
 	public static final RegistryObject<SwordItem> SAPPHIRE_SWORD = ITEMS.register("sapphire_sword", () -> 
-	new SwordItem(ModItemTier.SAPPHIRE, 10 , -2.4F, new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
+	new SwordItem(ModTiers.SAPPHIRE, 10 , -2.4F, new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 	
 	  //Axes
 	public static final RegistryObject<AxeItem> SAPPHIRE_AXE = ITEMS.register("sapphire_axe", () -> 
-	new AxeItem(ModItemTier.SAPPHIRE, 12, -3.0F, new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
+	new AxeItem(ModTiers.SAPPHIRE, 12, -3.0F, new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 	
 	 //Shovels
 	public static final RegistryObject<ShovelItem> SAPPHIRE_SHOVEL = ITEMS.register("sapphire_shovel", () ->
-	new ShovelItem(ModItemTier.SAPPHIRE, 8.5F, -3.0F, new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
+	new ShovelItem(ModTiers.SAPPHIRE, 8.5F, -3.0F, new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 	
 	 //Pickaxe
 	public static final RegistryObject<PickaxeItem> SAPPHIRE_PICKAXE = ITEMS.register("sapphire_pickaxe", () ->
-	new PickaxeItem(ModItemTier.SAPPHIRE, 6, -2.8F, new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
+	new PickaxeItem(ModTiers.SAPPHIRE, 6, -2.8F, new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 	
 	 //Hoe
 	public static final RegistryObject<HoeItem> SAPPHIRE_HOE = ITEMS.register("sapphire_hoe", () ->
-	new HoeItem(ModItemTier.SAPPHIRE, 4, -0.0F, new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
+	new HoeItem(ModTiers.SAPPHIRE, 4, -0.0F, new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 	
 	
 	//Armor
