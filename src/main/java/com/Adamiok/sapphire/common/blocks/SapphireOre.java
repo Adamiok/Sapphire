@@ -1,4 +1,4 @@
-package com.Adamiok.sapphire.common.blocks;
+package com.adamiok.sapphire.common.blocks;
 
 import java.util.Random;
 

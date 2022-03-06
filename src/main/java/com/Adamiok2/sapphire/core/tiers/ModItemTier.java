@@ -1,4 +1,4 @@
-package com.adamiok.sapphire.core.tiers;
+package com.Adamiok.sapphire.core.tiers;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -10,7 +10,7 @@ import net.minecraftforge.common.ForgeTier;
 import net.minecraftforge.common.TierSortingRegistry;
 import java.util.List;
 
-import com.adamiok.sapphire.core.init.ItemInit;
+import com.Adamiok.sapphire.core.init.ItemInit;
 
 public class ModItemTier
 {

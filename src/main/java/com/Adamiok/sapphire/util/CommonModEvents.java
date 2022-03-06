@@ -1,7 +1,7 @@
-package com.Adamiok.sapphire.util;
+package com.adamiok.sapphire.util;
 
-import com.Adamiok.sapphire.Sapphire;
-import com.Adamiok.sapphire.world.OreGeneration;
+import com.adamiok.sapphire.world.OreGeneration;
+import com.adamiok.sapphire.Sapphire;
 
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

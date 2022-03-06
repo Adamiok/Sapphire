@@ -1,6 +1,6 @@
-package com.Adamiok.sapphire.common.items;
+package com.adamiok.sapphire.common.items;
 
-import com.Adamiok.sapphire.core.init.ItemInit;
+import com.adamiok.sapphire.core.init.ItemInit;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
