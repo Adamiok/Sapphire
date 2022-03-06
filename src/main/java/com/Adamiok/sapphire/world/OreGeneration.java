@@ -1,12 +1,12 @@
-package com.Adamiok.sapphire.world;
+package com.adamiok.sapphire.world;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-import com.Adamiok.sapphire.Sapphire;
-import com.Adamiok.sapphire.core.config.OreGenConfig;
-import com.Adamiok.sapphire.core.init.BlockInit;
+import com.adamiok.sapphire.Sapphire;
+import com.adamiok.sapphire.core.config.OreGenConfig;
+import com.adamiok.sapphire.core.init.BlockInit;
 
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.OrePlacements;

@@ -1,14 +1,14 @@
-package com.Adamiok.sapphire.core.init;
+package com.adamiok.sapphire.core.init;
 
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import com.Adamiok.sapphire.Sapphire;
-import com.Adamiok.sapphire.common.items.SapphireChestplate;
-import com.Adamiok.sapphire.common.items.SapphireHelmet;
-import com.Adamiok.sapphire.core.tiers.ModArmorMaterial;
-import com.Adamiok.sapphire.core.tiers.ModItemTier;
+import com.adamiok.sapphire.Sapphire;
+import com.adamiok.sapphire.common.items.SapphireChestplate;
+import com.adamiok.sapphire.common.items.SapphireHelmet;
+import com.adamiok.sapphire.core.tiers.ModArmorMaterial;
+import com.adamiok.sapphire.core.tiers.ModItemTier;
 
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;

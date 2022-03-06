@@ -1,9 +1,9 @@
-package com.Adamiok.sapphire.core.tiers;
+package com.adamiok.sapphire.core.tiers;
 
 import java.util.function.Supplier;
 
-import com.Adamiok.sapphire.Sapphire;
-import com.Adamiok.sapphire.core.init.ItemInit;
+import com.adamiok.sapphire.Sapphire;
+import com.adamiok.sapphire.core.init.ItemInit;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;

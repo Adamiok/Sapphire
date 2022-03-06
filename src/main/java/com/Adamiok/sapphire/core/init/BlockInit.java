@@ -1,7 +1,7 @@
-package com.Adamiok.sapphire.core.init;
+package com.adamiok.sapphire.core.init;
 
-import com.Adamiok.sapphire.Sapphire;
-import com.Adamiok.sapphire.common.blocks.SapphireOre;
+import com.adamiok.sapphire.Sapphire;
+import com.adamiok.sapphire.common.blocks.SapphireOre;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
