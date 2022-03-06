@@ -6,14 +6,15 @@ license='''
 CC BY-NC-SA 4.0,
 More info: https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" 
 '''#mandatory https://choosealicense.com/
-issueTrackerURL="https://github.com/Adamiok/Sapphire/tree/main" #optional
+issueTrackerURL="https://github.com/Adamiok/Sapphire/issues" #optional
  
 [[mods]] #mandatory
 modId="adamioks_sapphire" #mandatory
-version="1.0" #mandatory
+version="2.1" #mandatory
 displayName="Sapphire-End Ore" #mandatory
 credits="Created by: Adamiok." #optional
 authors="Adamiok" #optional
 description='''
 This mod adds a sapphire ore to the game. It can be only found in the End. Use it to create tools and armor, which is special.
+CurseForge: https://www.curseforge.com/minecraft/mc-mods/sapphire-end-ore/files
 ''' #mandatory
